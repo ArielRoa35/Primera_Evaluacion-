@@ -6,7 +6,8 @@
 package uni.evaluacion1.controllers;
 
 import javax.swing.table.DefaultTableModel;
-import ni.evaluacion1.views.panels.PnlViews;
+import uni.evaluacion1.views.panels.PnlViews;
+
 
 /**
  *
