@@ -84,6 +84,10 @@ public class PnlVehicleController {
         pnlVehicle.getCmbStatus().setModel(cmbModelStatus);
         
         pnlVehicle.getTxtStock().requestFocus();
+        pnlVehicle.getTxtStyle().requestFocus();
+        pnlVehicle.getFmtVin().requestFocus();
+        pnlVehicle.getTxtEngine().requestFocus();
+        pnlVehicle.getTxtImage().requestFocus();
         
         pnlVehicle.getBtnBrowse().addActionListener((e)->{
             btnBrowseActionListener(e);
@@ -91,6 +95,11 @@ public class PnlVehicleController {
         
         pnlVehicle.getBtnSave().addActionListener((e)->{
             btnSaveActionListener(e);
+            btnCancelActionListener(e);
+        });
+        
+        pnlVehicle.getBtnCancel().addActionListener((e) ->{
+            btnCancelActionListener(e);
         });
         
     }
@@ -101,7 +110,14 @@ public class PnlVehicleController {
         float price;
         Vehicle.Transmission transmission = Vehicle.Transmission.AUTOMATIC;
         
-        if(pnlVehicle.getTxtStock().getText().isEmpty()){
+        if(pnlVehicle.getTxtStock().getText().isEmpty()|| pnlVehicle.getTxtStyle().getText().isEmpty() 
+                || pnlVehicle.getTxtEngine().getText().isEmpty() || pnlVehicle.getTxtImage().getText().isEmpty()
+                || pnlVehicle.getFmtVin().getText().isEmpty() || pnlVehicle.getSpnMiles().getToolTipText().isEmpty() 
+                ||pnlVehicle.getSpnPrice().getToolTipText().isEmpty() || pnlVehicle.getCmbEColor().getToolTipText().isEmpty() 
+                || pnlVehicle.getCmbIColor().getToolTipText().isEmpty() || pnlVehicle.getCmbMake().getToolTipText().isEmpty()
+                || pnlVehicle.getCmbModel().getToolTipText().isEmpty() || pnlVehicle.getCmbStatus().getToolTipText().isEmpty()
+                || pnlVehicle.getCmbYear().getToolTipText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese todos los valores.", "Error de ingreso", JOptionPane.ERROR_MESSAGE);
             return;
         }
         stock = Integer.parseInt(pnlVehicle.getTxtStock().getText());
@@ -151,5 +167,23 @@ public class PnlVehicleController {
         }
         
         pnlVehicle.getTxtImage().setText(file.getPath());        
+    }
+    
+    private void btnCancelActionListener(ActionEvent e){
+        
+        pnlVehicle.getTxtStock().setText("");
+        pnlVehicle.getCmbYear().setSelectedIndex(0);
+        pnlVehicle.getCmbMake().setSelectedIndex(0);
+        pnlVehicle.getCmbModel().setSelectedIndex(0);
+        pnlVehicle.getTxtStyle().setText("");
+        pnlVehicle.getFmtVin().setText("");
+        pnlVehicle.getCmbIColor().setSelectedIndex(0);
+        pnlVehicle.getCmbEColor().setSelectedIndex(0);
+        pnlVehicle.getSpnMiles().setValue(0);
+        pnlVehicle.getSpnPrice().setValue(0);
+        pnlVehicle.getTxtEngine().setText("");
+        pnlVehicle.getTxtImage().setText("");
+        pnlVehicle.getCmbStatus().setSelectedIndex(0);
+        pnlVehicle.getRbtnAut().setSelected(true);
     }
 }
