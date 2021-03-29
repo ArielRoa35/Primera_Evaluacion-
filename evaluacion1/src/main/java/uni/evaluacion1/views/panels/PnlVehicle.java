@@ -167,6 +167,11 @@ public class PnlVehicle extends javax.swing.JPanel {
                 txtStockFocusLost(evt);
             }
         });
+        txtStock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtStockActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -237,6 +242,12 @@ public class PnlVehicle extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         jPanel2.add(jLabel5, gridBagConstraints);
+
+        txtStyle.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtStyleFocusLost(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
@@ -435,14 +446,31 @@ public class PnlVehicle extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtStockFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtStockFocusLost
-        if(txtStock.getText().isEmpty()){
+       /* if(txtStock.getText().isEmpty()){
             txtStock.requestFocus();
-            txtStock.setBorder(new LineBorder(Color.RED, 1));
+            txtStock.setBorder(new LineBorder(Color.RED, 2));
             return;
         }
         
         txtStock.setBorder(null);
+        */
     }//GEN-LAST:event_txtStockFocusLost
+
+    private void txtStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStockActionPerformed
+        
+    }//GEN-LAST:event_txtStockActionPerformed
+
+    private void txtStyleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtStyleFocusLost
+    /*   if(txtStyle.getText().isEmpty()){
+           txtStyle.requestFocus();
+           txtStyle.setBorder(new LineBorder(Color.RED, 2));
+           return;
+       }
+       
+       txtStyle.setBorder(null);
+       */
+    
+    }//GEN-LAST:event_txtStyleFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

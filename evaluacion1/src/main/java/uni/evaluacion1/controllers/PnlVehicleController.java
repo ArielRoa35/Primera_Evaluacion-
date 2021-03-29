@@ -3,6 +3,8 @@ package uni.evaluacion1.controllers;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.io.BufferedReader;
 import java.io.File;
@@ -18,6 +20,7 @@ import java.util.stream.Collectors;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.border.LineBorder;
 import uni.evaluacion1.backend.dao.implementation.JsonVehicleDaoImpl;
 import uni.evaluacion1.backend.pojo.Vehicle;
 import uni.evaluacion1.backend.pojo.VehicleSubModel;
@@ -95,9 +98,30 @@ public class PnlVehicleController {
         float price;
         Vehicle.Transmission transmission = Vehicle.Transmission.AUTOMATIC;
         
-        if(pnlVehicle.getTxtStock().getText().isEmpty()){
+        if(pnlVehicle.getTxtStock().getText().isEmpty() || pnlVehicle.getTxtStyle().getText().isEmpty() 
+                || pnlVehicle.getTxtEngine().getText().isEmpty() || pnlVehicle.getTxtImage().getText().isEmpty()
+                || pnlVehicle.getFmtVin().getText().isEmpty() || pnlVehicle.getSpnMiles().getToolTipText().isEmpty() 
+                ||pnlVehicle.getSpnPrice().getToolTipText().isEmpty() || pnlVehicle.getCmbEColor().getToolTipText().isEmpty() 
+                || pnlVehicle.getCmbIColor().getToolTipText().isEmpty() || pnlVehicle.getCmbMake().getToolTipText().isEmpty()
+                || pnlVehicle.getCmbModel().getToolTipText().isEmpty() || pnlVehicle.getCmbStatus().getToolTipText().isEmpty()
+                || pnlVehicle.getCmbYear().getToolTipText().isEmpty()){
+            pnlVehicle.getTxtStock().setBorder(new LineBorder(Color.RED, 2));
+            pnlVehicle.getTxtStyle().setBorder(new LineBorder(Color.RED, 2));
+            pnlVehicle.getTxtEngine().setBorder(new LineBorder(Color.RED, 2));
+            pnlVehicle.getTxtImage().setBorder(new LineBorder(Color.RED, 2));
+            pnlVehicle.getSpnMiles().setBorder(new LineBorder(Color.RED, 2));
+            pnlVehicle.getSpnPrice().setBorder(new LineBorder(Color.RED, 2));
+            pnlVehicle.getFmtVin().setBorder(new LineBorder(Color.RED, 2));
+            JOptionPane.showMessageDialog(pnlVehicle, "Please don't leave empty apaces");
+            
             return;
         }
+            
+        
+            
+        
+        
+        
         stock = Integer.parseInt(pnlVehicle.getTxtStock().getText());
         year = Integer.parseInt(pnlVehicle.getCmbYear().getSelectedItem().toString());
         make = pnlVehicle.getCmbMake().getSelectedItem().toString();
@@ -128,6 +152,8 @@ public class PnlVehicleController {
             Logger.getLogger(PnlVehicleController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    
     
     private void btnBrowseActionListener(ActionEvent e){
         fileChooser = new JFileChooser();

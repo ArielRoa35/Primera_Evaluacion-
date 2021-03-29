@@ -10,7 +10,9 @@ import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComponent;
+import ni.evaluacion1.views.panels.PnlViews;
 import uni.evaluacion1.controllers.PnlVehicleController;
+import uni.evaluacion1.controllers.PnlViewsController;
 import uni.evaluacion1.views.panels.PnlVehicle;
 
 /**
@@ -20,14 +22,17 @@ import uni.evaluacion1.views.panels.PnlVehicle;
 public class FrmVehicle extends javax.swing.JFrame {
     private PnlVehicle pnlVehicle;
     private PnlVehicleController pnlVehicleController;
-    
+    private  PnlViews pnlViews;
+    private PnlViewsController pnlVC;
     /**
      * Creates new form FrmVehicle
      */
     public FrmVehicle() {
         initComponents();
+        
+                
     }
-
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -61,6 +66,11 @@ public class FrmVehicle extends javax.swing.JFrame {
         jPanel1.add(btnNew);
 
         btnView.setText("View");
+        btnView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnView);
 
         jSplitPane1.setLeftComponent(jPanel1);
@@ -93,6 +103,16 @@ public class FrmVehicle extends javax.swing.JFrame {
         
         addComponent(pnlVehicle);
     }//GEN-LAST:event_btnNewActionPerformed
+
+    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
+         if(pnlViews == null){
+            pnlViews = new PnlViews();
+            pnlVC = new PnlViewsController(pnlViews);
+               
+            
+        }
+        addComponent(pnlViews);
+    }//GEN-LAST:event_btnViewActionPerformed
 
      private void addComponent(JComponent component) {
         pnlContent.removeAll();
