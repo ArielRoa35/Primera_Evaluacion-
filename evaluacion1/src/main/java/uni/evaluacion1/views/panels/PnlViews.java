@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 
-package ni.evaluacion1.views.panels;
+package uni.evaluacion1.views.panels;
+
+import javax.swing.JTable;
+import javax.swing.JTextField;
 
 /**
  *
@@ -16,6 +19,20 @@ public class PnlViews extends javax.swing.JPanel {
     public PnlViews() {
         initComponents();
     }
+
+    public JTextField getTxtSearch() {
+        return txtSearch;
+    }
+
+    public void setTxtSearch(JTextField txtSearch) {
+        this.txtSearch = txtSearch;
+    }
+
+    public JTable getTblViews() {
+        return tblViews;
+    }
+    
+    
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -78,7 +95,7 @@ public class PnlViews extends javax.swing.JPanel {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Float.class, java.lang.Float.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.Float.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {

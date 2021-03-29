@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComponent;
+import uni.evaluacion1.views.panels.PnlViews;
 import uni.evaluacion1.controllers.PnlVehicleController;
 import uni.evaluacion1.views.panels.PnlVehicle;
 
@@ -19,6 +20,7 @@ import uni.evaluacion1.views.panels.PnlVehicle;
  */
 public class FrmVehicle extends javax.swing.JFrame {
     private PnlVehicle pnlVehicle;
+    private PnlViews pnlViews;
     private PnlVehicleController pnlVehicleController;
     
     /**
@@ -61,6 +63,11 @@ public class FrmVehicle extends javax.swing.JFrame {
         jPanel1.add(btnNew);
 
         btnView.setText("View");
+        btnView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnView);
 
         jSplitPane1.setLeftComponent(jPanel1);
@@ -93,6 +100,13 @@ public class FrmVehicle extends javax.swing.JFrame {
         
         addComponent(pnlVehicle);
     }//GEN-LAST:event_btnNewActionPerformed
+
+    private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
+        if (pnlViews == null) {
+            
+            pnlViews = new PnlViews();
+        }
+    }//GEN-LAST:event_btnViewActionPerformed
 
      private void addComponent(JComponent component) {
         pnlContent.removeAll();
