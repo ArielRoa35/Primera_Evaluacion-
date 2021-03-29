@@ -237,6 +237,12 @@ public class PnlVehicle extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         jPanel2.add(jLabel5, gridBagConstraints);
+
+        txtStyle.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtStyleFocusLost(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
@@ -254,6 +260,12 @@ public class PnlVehicle extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         jPanel2.add(jLabel6, gridBagConstraints);
+
+        fmtVin.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                fmtVinFocusLost(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
@@ -378,6 +390,12 @@ public class PnlVehicle extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         jPanel2.add(jLabel12, gridBagConstraints);
+
+        txtEngine.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtEngineFocusLost(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 11;
@@ -395,6 +413,12 @@ public class PnlVehicle extends javax.swing.JPanel {
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
         jPanel2.add(jLabel13, gridBagConstraints);
+
+        txtImage.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtImageFocusLost(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 12;
@@ -436,13 +460,49 @@ public class PnlVehicle extends javax.swing.JPanel {
 
     private void txtStockFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtStockFocusLost
         if(txtStock.getText().isEmpty()){
-            txtStock.requestFocus();
+            
             txtStock.setBorder(new LineBorder(Color.RED, 1));
-            return;
+        }else{
+            txtStock.setBorder(new LineBorder(Color.BLACK, 1));
         }
-        
-        txtStock.setBorder(null);
     }//GEN-LAST:event_txtStockFocusLost
+
+    private void txtStyleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtStyleFocusLost
+        if(txtStyle.getText().isEmpty()){
+            
+            txtStyle.setBorder(new LineBorder(Color.RED, 1));
+        }else{
+            txtStyle.setBorder(new LineBorder(Color.BLACK, 1));
+        }
+    }//GEN-LAST:event_txtStyleFocusLost
+
+    private void fmtVinFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_fmtVinFocusLost
+        if(fmtVin.getText().isEmpty()){
+            
+            fmtVin.setBorder(new LineBorder(Color.RED, 1)); 
+        }else{
+            fmtVin.setBorder(new LineBorder(Color.BLACK, 1));
+        }
+    }//GEN-LAST:event_fmtVinFocusLost
+
+    private void txtEngineFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtEngineFocusLost
+        if(txtEngine.getText().isEmpty()){
+            
+            txtEngine.setBorder(new LineBorder(Color.RED, 1));
+        }else{
+            
+            txtEngine.setBorder(new LineBorder(Color.BLACK, 1));
+        }
+    }//GEN-LAST:event_txtEngineFocusLost
+
+    private void txtImageFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtImageFocusLost
+        if(txtImage.getText().isEmpty()){
+            
+            txtImage.setBorder(new LineBorder(Color.RED, 1));
+        }else{
+            txtImage.setBorder(new LineBorder(Color.BLACK, 1));
+        }
+    }//GEN-LAST:event_txtImageFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
