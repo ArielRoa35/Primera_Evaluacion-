@@ -95,7 +95,7 @@ public class PnlViews extends javax.swing.JPanel {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -103,6 +103,22 @@ public class PnlViews extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(tblViews);
+        if (tblViews.getColumnModel().getColumnCount() > 0) {
+            tblViews.getColumnModel().getColumn(0).setHeaderValue("Stock Number");
+            tblViews.getColumnModel().getColumn(1).setHeaderValue("Year");
+            tblViews.getColumnModel().getColumn(2).setHeaderValue("Make");
+            tblViews.getColumnModel().getColumn(3).setHeaderValue("Model");
+            tblViews.getColumnModel().getColumn(4).setHeaderValue("Style");
+            tblViews.getColumnModel().getColumn(5).setHeaderValue("VIN");
+            tblViews.getColumnModel().getColumn(6).setHeaderValue("Exterior color");
+            tblViews.getColumnModel().getColumn(7).setHeaderValue("Interior color");
+            tblViews.getColumnModel().getColumn(8).setHeaderValue("Miles");
+            tblViews.getColumnModel().getColumn(9).setHeaderValue("Price");
+            tblViews.getColumnModel().getColumn(10).setHeaderValue("Transmission");
+            tblViews.getColumnModel().getColumn(11).setHeaderValue("Engine");
+            tblViews.getColumnModel().getColumn(12).setHeaderValue("Image Path");
+            tblViews.getColumnModel().getColumn(13).setHeaderValue("Status");
+        }
 
         jPanel2.add(jScrollPane1);
 

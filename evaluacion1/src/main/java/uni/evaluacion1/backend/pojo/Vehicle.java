@@ -49,6 +49,14 @@ public class Vehicle {
         this.status = status;
     }
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
     public int getStockNumber() {
         return stockNumber;
     }

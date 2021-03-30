@@ -7,11 +7,13 @@ package uni.evaluacion1.views;
 
 import java.awt.BorderLayout;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComponent;
 import uni.evaluacion1.views.panels.PnlViews;
 import uni.evaluacion1.controllers.PnlVehicleController;
+import uni.evaluacion1.controllers.PnlViewsController;
 import uni.evaluacion1.views.panels.PnlVehicle;
 
 /**
@@ -22,6 +24,7 @@ public class FrmVehicle extends javax.swing.JFrame {
     private PnlVehicle pnlVehicle;
     private PnlViews pnlViews;
     private PnlVehicleController pnlVehicleController;
+    private PnlViewsController pnlViewsController;
     
     /**
      * Creates new form FrmVehicle
@@ -105,7 +108,14 @@ public class FrmVehicle extends javax.swing.JFrame {
         if (pnlViews == null) {
             
             pnlViews = new PnlViews();
+            try {
+                pnlViewsController = new PnlViewsController(pnlViews);
+            } catch (IOException ex) {
+                Logger.getLogger(FrmVehicle.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
+        addComponent(pnlViews);
     }//GEN-LAST:event_btnViewActionPerformed
 
      private void addComponent(JComponent component) {
